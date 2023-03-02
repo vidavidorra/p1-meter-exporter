@@ -1,0 +1,214 @@
+{
+  "name": "@vidavidorra/p1-meter-exporter",
+  "version": "0.1.0",
+  "description": "HomeWizard P1 Meter exporter",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "private": true,
+  "files": [
+    "./dist/**/!(*.test).{js,d.ts}"
+  ],
+  "scripts": {
+    "prepare": "husky install .github/husky",
+    "lint": "run-p format:check xo",
+    "lint:fix": "run-p format 'xo -- --fix'",
+    "format:check": "prettier --ignore-path .gitignore --check \"**/*.{vue,css,less,scss,html,htm,json,md,markdown,yml,yaml}\" --loglevel warn",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{vue,css,less,scss,html,htm,json,md,markdown,yml,yaml}\" --loglevel warn",
+    "xo": "xo",
+    "build": "tsc",
+    "build:check": "tsc --noEmit",
+    "test": "c8 ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidavidorra/p1-meter-exporter.git"
+  },
+  "keywords": [
+    "p1",
+    "meter",
+    "exporter"
+  ],
+  "author": "Jeroen de Bruijn",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/vidavidorra/p1-meter-exporter/issues"
+  },
+  "homepage": "https://github.com/vidavidorra/p1-meter-exporter#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@ava/typescript": "3.0.1",
+    "@commitlint/cli": "17.4.4",
+    "@semantic-release/changelog": "6.0.2",
+    "@semantic-release/exec": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "@types/node": "18.14.1",
+    "@vidavidorra/commitlint-config": "4.0.12",
+    "ava": "5.2.0",
+    "c8": "7.13.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.1.2",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.8.4",
+    "semantic-release": "20.1.0",
+    "typescript": "4.9.5",
+    "xo": "0.53.1"
+  },
+  "ava": {
+    "files": [
+      "!worktrees",
+      "src/**/*.test.ts"
+    ],
+    "typescript": {
+      "rewritePaths": {
+        "src/": "dist/"
+      },
+      "compile": "tsc"
+    }
+  },
+  "c8": {
+    "include": [
+      "dist/**/*.js"
+    ],
+    "reporter": [
+      "cobertura",
+      "html",
+      "lcovonly",
+      "text-summary"
+    ]
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "object-curly-spacing": "off"
+    },
+    "space": true
+  },
+  "commitlint": {
+    "extends": [
+      "@vidavidorra"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "release": {
+    "branches": [
+      "main",
+      {
+        "name": "beta",
+        "prerelease": true
+      }
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            {
+              "type": "perf",
+              "release": "patch"
+            },
+            {
+              "type": "revert",
+              "release": "patch"
+            },
+            {
+              "type": "docs",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "release": false
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "test",
+              "release": "patch"
+            },
+            {
+              "type": "build",
+              "release": "patch"
+            },
+            {
+              "type": "ci",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "prettier --write CHANGELOG.md"
+        }
+      ],
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      [
+        "@semantic-release/github",
+        {
+          "assets": "dist/*.tgz"
+        }
+      ]
+    ],
+    "preset": "conventionalcommits",
+    "presetConfig": {
+      "types": [
+        {
+          "type": "feat",
+          "section": "Features"
+        },
+        {
+          "type": "fix",
+          "section": "Bug Fixes"
+        },
+        {
+          "type": "perf",
+          "section": "Performance Improvements"
+        },
+        {
+          "type": "revert",
+          "section": "Reverts"
+        },
+        {
+          "type": "docs",
+          "section": "Documentation"
+        },
+        {
+          "type": "style",
+          "section": "Styles"
+        },
+        {
+          "type": "chore",
+          "section": "Miscellaneous Chores",
+          "hidden": true
+        },
+        {
+          "type": "refactor",
+          "section": "Code Refactoring"
+        },
+        {
+          "type": "test",
+          "section": "Tests"
+        },
+        {
+          "type": "build",
+          "section": "Build System"
+        },
+        {
+          "type": "ci",
+          "section": "Continuous Integration"
+        }
+      ]
+    }
+  }
+}

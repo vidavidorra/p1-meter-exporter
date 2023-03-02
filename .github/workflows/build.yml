@@ -1,0 +1,12 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+      - beta
+      - 'renovate/**'
+      - 'github-renovate/**'
+  pull_request:
+jobs:
+  lint:
+    uses: vidavidorra/.github/.github/workflows/node-lint.yml@6806ef65ed548aeab950f9141e7ebc5bc0681809 # tag=v1.2.3
