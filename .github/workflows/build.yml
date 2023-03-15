@@ -47,6 +47,8 @@ jobs:
           includeUserInformation: true
       - name: Release
         env:
+          DOCKER_REGISTRY_USER: ${{ steps.app-token.outputs.username }}
+          DOCKER_REGISTRY_PASSWORD: ${{ steps.app-token.outputs.token }}
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           GIT_AUTHOR_NAME: ${{ steps.app-token.outputs.username }}
           GIT_AUTHOR_EMAIL: ${{ steps.app-token.outputs.email }}
