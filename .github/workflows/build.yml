@@ -9,4 +9,47 @@ on:
   pull_request:
 jobs:
   lint:
-    uses: vidavidorra/.github/.github/workflows/node-lint.yml@6806ef65ed548aeab950f9141e7ebc5bc0681809 # tag=v1.2.3
+    uses: vidavidorra/.github/.github/workflows/node-lint.yml@v2.1.1
+  build:
+    name: Build (Node.js ${{ matrix.nodeVersion }})
+    strategy:
+      fail-fast: false
+      matrix:
+        nodeVersion: [18, 19]
+    uses: vidavidorra/.github/.github/workflows/node-build.yml@v2.1.1
+    with:
+      nodeVersion: ${{ matrix.nodeVersion }}
+  release:
+    needs: [lint, build]
+    runs-on: ubuntu-latest
+    # GitHub API requests can easy take a couple of seconds and the release can
+    # make lots of API requests when a release has a lot of commits. If every
+    # requests takes five seconds, which is on the high side for a request, this
+    # could perform 180 requests. This should be enough for most use cases.
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          persist-credentials: false
+      - name: Setup node
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        with:
+          node-version: 18
+      - name: Install project
+        run: npm ci --ignore-scripts
+      - name: Generate token
+        id: generate_token
+        uses: vidavidorra/github-app-token@e1df6ef2d28f0b02c63c7e9446e12547584f17fe # v1.0.0
+        with:
+          appId: ${{ secrets.RELEASE_APP_ID }}
+          privateKey: ${{ secrets.RELEASE_PRIVATE_KEY }}
+          includeUserInformation: true
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          GIT_AUTHOR_NAME: ${{ steps.app-token.outputs.username }}
+          GIT_AUTHOR_EMAIL: ${{ steps.app-token.outputs.email }}
+          GIT_COMMITTER_NAME: ${{ steps.app-token.outputs.username }}
+          GIT_COMMITTER_EMAIL: ${{ steps.app-token.outputs.email }}
+        run: npx --no-install semantic-release

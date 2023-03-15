@@ -2,6 +2,15 @@
 
 🚧 [HomeWizard P1 Meter](https://www.homewizard.com/p1-meter/) exporter (work in progress).s
 
+## Inputs
+
+- `P1E_METER_API_URL`
+- `P1E_INFLUXDB_URL`
+- `P1E_INFLUXDB_TOKEN`
+- `P1E_INFLUXDB_ORGANISATION`
+- `P1E_INFLUXDB_BUCKET`
+- `P1E_LOG_LEVEL`
+
 ## Security policy
 
 Please refer to the [Security Policy on GitHub](https://github.com/vidavidorra/p1-meter-exporter/security/) for the security policy.
