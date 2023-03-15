@@ -38,8 +38,8 @@ jobs:
           node-version: 18
       - name: Install project
         run: npm ci --ignore-scripts
-      - name: Generate token
-        id: generate_token
+      - name: GitHub App token
+        id: app-token
         uses: vidavidorra/github-app-token@e1df6ef2d28f0b02c63c7e9446e12547584f17fe # v1.0.0
         with:
           appId: ${{ secrets.RELEASE_APP_ID }}
