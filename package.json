@@ -140,7 +140,7 @@
       [
         "@codedependant/semantic-release-docker",
         {
-          "dockerRegistry": "https://ghcr.io",
+          "dockerRegistry": "ghcr.io",
           "dockerArgs": {
             "GITHUB_TOKEN": true
           }
