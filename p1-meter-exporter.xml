@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>P1-meter-exporter</Name>
+  <Repository>ghcr.io/vidavidorra/p1-meter-exporter:latest</Repository>
+  <Registry/>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/vidavidorra/p1-meter-exporter</Project>
+  <Overview/>
+  <Category>HomeAutomation:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon/>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1679345647</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="P1 Meter API URL" Target="P1E_METER_API_URL" Default="http://192.168.0.100/api" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Influx DB URL" Target="P1E_INFLUXDB_URL" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">http://192.168.0.2:8086</Config>
+  <Config Name="Influx DB token" Target="P1E_INFLUXDB_TOKEN" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Influx DB organisation" Target="P1E_INFLUXDB_ORGANISATION" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Influx DB bucket" Target="P1E_INFLUXDB_BUCKET" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">p1-meter</Config>
+  <Config Name="Log level" Target="P1E_LOG_LEVEL" Default="warn" Mode="" Description="Log level&#13;&#10;'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal'" Type="Variable" Display="always" Required="false" Mask="false">trace</Config>
+</Container>
