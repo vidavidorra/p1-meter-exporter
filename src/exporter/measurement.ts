@@ -5,8 +5,8 @@ import type P1Meter from '../p1-meter/api.js';
 import Exporter from './exporter.js';
 
 function round(value: number, decimalPlaces: number): number {
-  const multipler = 10 ** Math.max(0, decimalPlaces - 1);
-  return Math.round((value + Number.EPSILON) * multipler) / multipler;
+  const factor = 10 ** Math.max(0, decimalPlaces);
+  return Math.round((value + Number.EPSILON) * factor) / factor;
 }
 
 export default class Measurement extends Exporter {
