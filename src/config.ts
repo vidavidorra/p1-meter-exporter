@@ -20,14 +20,14 @@ type Config = z.infer<typeof schema>;
 dotenv.config();
 
 const config = schema.parse({
-  meterApiUrl: env.P1E_METER_API_URL,
+  meterApiUrl: env.P1E_METER_API_URL ?? env.METER_API_URL,
   influxDb: {
-    url: env.P1E_INFLUXDB_URL,
-    token: env.P1E_INFLUXDB_TOKEN,
-    organisation: env.P1E_INFLUXDB_ORGANISATION,
-    bucket: env.P1E_INFLUXDB_BUCKET,
+    url: env.P1E_INFLUXDB_URL ?? env.INFLUXDB_URL,
+    token: env.P1E_INFLUXDB_TOKEN ?? env.INFLUXDB_TOKEN,
+    organisation: env.P1E_INFLUXDB_ORGANISATION ?? env.INFLUXDB_ORGANISATION,
+    bucket: env.P1E_INFLUXDB_BUCKET ?? env.INFLUXDB_BUCKET,
   },
-  logLevel: env.P1E_LOG_LEVEL,
+  logLevel: env.P1E_LOG_LEVEL ?? env.LOG_LEVEL,
 });
 
 export {config, type Config};
