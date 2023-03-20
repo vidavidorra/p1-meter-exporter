@@ -1,3 +1,17 @@
+## [1.1.0](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.0.0...v1.1.0) (2023-03-20)
+
+### Features
+
+- **config:** allow enviornment variables without `P1E_` prefix ([4d0da19](https://github.com/vidavidorra/p1-meter-exporter/commit/4d0da19607d630b425a6adfa6d095702334356a4))
+
+### Bug Fixes
+
+- correct rounding to N decimal places, incorrectly was N-1 ([dc62974](https://github.com/vidavidorra/p1-meter-exporter/commit/dc629747a13d3cebc81222b5ccb9e7fd4267a8b4))
+
+### Continuous Integration
+
+- remove `GITHUB_TOKEN` docker arg ([a14643c](https://github.com/vidavidorra/p1-meter-exporter/commit/a14643c0f30c4bf3ef3d137f73051197536d00d0))
+
 ## 1.0.0 (2023-03-20)
 
 ### Features
