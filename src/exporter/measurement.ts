@@ -22,11 +22,6 @@ export default class Measurement extends Exporter {
   async export(): Promise<void> {
     const telegram = await this._p1Meter.telegram();
 
-    logger.debug(
-      {date: telegram.date, cp: telegram.consumedPower},
-      'Export measurement',
-    );
-
     this._writeApi.writePoint(
       new Point('measurement')
         .timestamp(telegram.date)
