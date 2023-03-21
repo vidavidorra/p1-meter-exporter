@@ -168,6 +168,7 @@ function extractValue(value: string): string {
 
 function parse(value: string): Telegram {
   const telegram: Record<string, unknown> = {};
+  logger.trace({value}, 'Parse telegram');
   for (const line of value.split('\r\n')) {
     const obisReferenceEndIndex = line.indexOf('(');
     if (obisReferenceEndIndex > 0) {
