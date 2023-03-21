@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.0...v1.1.1) (2023-03-21)
+
+### Bug Fixes
+
+- **exporter:** remove unused log with single parsed value ([365e46b](https://github.com/vidavidorra/p1-meter-exporter/commit/365e46beee125eb2a1f25a5b78a5e360dc91789f))
+- **p1-meter:** add trace log with the telegram to be parsed ([c89acb2](https://github.com/vidavidorra/p1-meter-exporter/commit/c89acb2c27d3c9c930403ceff5f767cf500cb19d))
+
 ## [1.1.0](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.0.0...v1.1.0) (2023-03-20)
 
 ### Features
