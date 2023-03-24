@@ -1,4 +1,5 @@
 import {DateTime, Duration} from 'luxon';
+import P1MeterError from '../error.js';
 import logger from '../logger.js';
 
 export default abstract class Exporter {
@@ -64,9 +65,17 @@ export default abstract class Exporter {
     }
 
     this._timeout = setTimeout(() => {
-      this._promise = this.export(nextExport).finally(() => {
-        this.setExportTimeout();
-      });
+      this._promise = this.export(nextExport)
+        .catch((error) => {
+          if (error instanceof P1MeterError) {
+            logger.error({...error.details, stack: error.stack}, error.message);
+          } else {
+            logger.error(error, 'Unknown error');
+          }
+        })
+        .finally(() => {
+          this.setExportTimeout();
+        });
     }, timeout.as('milliseconds'));
   }
 }
