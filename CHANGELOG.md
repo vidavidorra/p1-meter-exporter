@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.1...v1.1.2) (2023-03-24)
+
+### Bug Fixes
+
+- log P1 meter errors and keep running the exporter ([347f3a8](https://github.com/vidavidorra/p1-meter-exporter/commit/347f3a8693094bfe594e2eefd070872cb68024df))
+
 ## [1.1.1](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.0...v1.1.1) (2023-03-21)
 
 ### Bug Fixes
