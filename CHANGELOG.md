@@ -1,3 +1,17 @@
+## [2.0.0-beta.1](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.2...v2.0.0-beta.1) (2023-03-24)
+
+### ⚠ BREAKING CHANGES
+
+- use low/high for tariff related measurements instead of 1/2
+
+### Features
+
+- use low/high for tariff related measurements instead of 1/2 ([b8059d5](https://github.com/vidavidorra/p1-meter-exporter/commit/b8059d51089ac0c0d195110b3ee08d5f198b315c))
+
+### Continuous Integration
+
+- add prerelease Docker tags ([02eafd8](https://github.com/vidavidorra/p1-meter-exporter/commit/02eafd887a07beb273e911019691c62762f51e52))
+
 ## [1.1.2](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.1...v1.1.2) (2023-03-24)
 
 ### Bug Fixes
