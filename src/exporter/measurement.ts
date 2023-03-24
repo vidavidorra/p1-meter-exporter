@@ -1,6 +1,5 @@
 import {type WriteApi, Point} from '@influxdata/influxdb-client';
 import {Duration} from 'luxon';
-import logger from '../logger.js';
 import type P1Meter from '../p1-meter/api.js';
 import Exporter from './exporter.js';
 
@@ -26,14 +25,14 @@ export default class Measurement extends Exporter {
       new Point('measurement')
         .timestamp(telegram.date)
         .intField(
-          'totalConsumedPowerTariff1',
-          telegram.totalConsumedPowerTariff1,
+          'totalConsumedPowerLowTariff',
+          telegram.totalConsumedPowerLowTariff,
         )
         .intField(
-          'totalConsumedPowerTariff2',
-          telegram.totalConsumedPowerTariff2,
+          'totalConsumedPowerHighTariff',
+          telegram.totalConsumedPowerHighTariff,
         )
-        .intField('tariff', telegram.tariff)
+        .stringField('tariff', telegram.tariff)
         .intField('consumedPower', telegram.consumedPower)
         .floatField('l1Voltage', telegram.l1Voltage)
         .floatField('l2Voltage', telegram.l2Voltage)

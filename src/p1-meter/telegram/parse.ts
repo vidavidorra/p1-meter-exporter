@@ -9,7 +9,7 @@ function numberSchema(
   decimals: number,
   unit?: string,
   multipler = 1,
-): z.Schema {
+): z.ZodEffects<z.ZodString, number, string> {
   return z
     .string()
     .regex(
@@ -33,6 +33,11 @@ const hexString = z
     /^([\da-z]{2})*$/,
     'String must contain an even number of hexadecimal characters',
   );
+
+const tariffs: ReadonlyMap<number, string> = new Map([
+  [1, 'low'],
+  [2, 'high'],
+]);
 
 /**
  * https://www.netbeheernederland.nl/_upload/Files/Slimme_meter_15_a727fce1f1.pdf
@@ -77,32 +82,38 @@ const obisReferences: ReadonlyMap<
   [
     '1-0:1.8.1',
     {
-      key: 'totalConsumedPowerTariff1',
+      key: 'totalConsumedPowerLowTariff',
       schema: numberSchema(9, 3, 'kWh', 1000),
     },
   ],
   [
     '1-0:1.8.2',
     {
-      key: 'totalConsumedPowerTariff2',
+      key: 'totalConsumedPowerHighTariff',
       schema: numberSchema(9, 3, 'kWh', 1000),
     },
   ],
   [
     '1-0:2.8.1',
     {
-      key: 'totalGeneratedPowerTariff1',
+      key: 'totalGeneratedPowerLowTariff',
       schema: numberSchema(9, 3, 'kWh', 1000),
     },
   ],
   [
     '1-0:2.8.2',
     {
-      key: 'totalGeneratedPowerTariff2',
+      key: 'totalGeneratedPowerHighTariff',
       schema: numberSchema(9, 3, 'kWh', 1000),
     },
   ],
-  ['0-0:96.14.0', {key: 'tariff', schema: numberSchema(4, 0)}],
+  [
+    '0-0:96.14.0',
+    {
+      key: 'tariff',
+      schema: numberSchema(4, 0).transform((arg) => tariffs.get(arg) ?? arg),
+    },
+  ],
   ['1-0:1.7.0', {key: 'consumedPower', schema: numberSchema(5, 3, 'kW', 1000)}],
   [
     '1-0:2.7.0',
