@@ -1,5 +1,5 @@
-import {DateTime, Duration} from 'luxon';
-import P1MeterError from '../error.js';
+import {DateTime, Duration, type DurationLikeObject} from 'luxon';
+import rollbar from '../rollbar.js';
 import logger from '../logger.js';
 
 export default abstract class Exporter {
@@ -8,9 +8,12 @@ export default abstract class Exporter {
   private _promise: Promise<void>;
   private _timeout: NodeJS.Timeout;
 
-  constructor(readonly name: string, interval: Duration) {
+  constructor(readonly name: string, interval: DurationLikeObject) {
     const minimumInterval = Duration.fromObject({milliseconds: 1000});
-    this._interval = interval < minimumInterval ? minimumInterval : interval;
+    this._interval =
+      Duration.fromObject(interval) < minimumInterval
+        ? minimumInterval
+        : Duration.fromObject(interval);
     this._logDetails = {exporter: name, interval: this._interval.toHuman()};
     this._promise = Promise.resolve();
     this._timeout = setTimeout(() => 0, 0);
@@ -41,7 +44,7 @@ export default abstract class Exporter {
     );
   }
 
-  abstract export(date: DateTime): Promise<void>;
+  abstract export(date: Date): Promise<void>;
 
   private setExportTimeout(exportImmediately?: boolean): void {
     clearTimeout(this._timeout);
@@ -65,13 +68,13 @@ export default abstract class Exporter {
     }
 
     this._timeout = setTimeout(() => {
-      this._promise = this.export(nextExport)
+      this._promise = this.export(nextExport.toJSDate())
         .catch((error) => {
-          if (error instanceof P1MeterError) {
-            logger.error({...error.details, stack: error.stack}, error.message);
-          } else {
-            logger.error(error, 'Unknown error');
-          }
+          rollbar.error(error);
+          logger.error(
+            error,
+            error instanceof Error ? error.message : undefined,
+          );
         })
         .finally(() => {
           this.setExportTimeout();

@@ -1,4 +1,5 @@
 import {env} from 'node:process';
+import {Buffer} from 'node:buffer';
 import {z} from 'zod';
 import dotenv from 'dotenv';
 
@@ -10,6 +11,13 @@ const schema = z.object({
     organisation: z.string().min(1),
     bucket: z.string().min(1),
   }),
+  rollbarToken: z.preprocess(
+    (arg) =>
+      typeof arg === 'string'
+        ? Buffer.from(arg, 'base64').toString('utf8')
+        : arg,
+    z.string().min(1),
+  ),
   logLevel: z
     .enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal'])
     .default('error'),
@@ -17,17 +25,19 @@ const schema = z.object({
 
 type Config = z.infer<typeof schema>;
 
-dotenv.config();
+dotenv.config({override: true});
 
 const config = schema.parse({
-  meterApiUrl: env.P1E_METER_API_URL ?? env.METER_API_URL,
+  meterApiUrl: env.METER_API_URL,
   influxDb: {
-    url: env.P1E_INFLUXDB_URL ?? env.INFLUXDB_URL,
-    token: env.P1E_INFLUXDB_TOKEN ?? env.INFLUXDB_TOKEN,
-    organisation: env.P1E_INFLUXDB_ORGANISATION ?? env.INFLUXDB_ORGANISATION,
-    bucket: env.P1E_INFLUXDB_BUCKET ?? env.INFLUXDB_BUCKET,
+    url: env.INFLUXDB_URL,
+    token: env.INFLUXDB_TOKEN,
+    organisation: env.INFLUXDB_ORGANISATION,
+    bucket: env.INFLUXDB_BUCKET,
   },
-  logLevel: env.P1E_LOG_LEVEL ?? env.LOG_LEVEL,
+  rollbarToken:
+    env.ROLLBAR_TOKEN ?? 'Njc2NGY5MTFiYTY5NGI3Y2EzYmZiNTAyNWZhNjhhOGM=',
+  logLevel: env.LOG_LEVEL,
 });
 
 export {config, type Config};

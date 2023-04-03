@@ -46,6 +46,7 @@
     "camelcase-keys": "8.0.2",
     "dotenv": "16.0.3",
     "luxon": "3.2.1",
+    "rollbar": "2.26.1",
     "zod": "3.20.6"
   },
   "devDependencies": {

@@ -2,6 +2,7 @@ import {Buffer} from 'node:buffer';
 import {z} from 'zod';
 import {DateTime} from 'luxon';
 import logger from '../../logger.js';
+import rollbar from '../../rollbar.js';
 import {type Telegram, schema} from './model.js';
 
 function numberSchema(
@@ -191,9 +192,13 @@ function parse(value: string): Telegram {
         if (data.success) {
           telegram[config.key] = data.data;
         } else {
+          rollbar.error(
+            {obisReference, data: line, issues: data.error.issues},
+            'Telegram line failed with invalid data',
+          );
           logger.error(
-            {obisReference, line, issues: data.error.issues},
-            'Invalid telegram line',
+            {obisReference, data: line, issues: data.error.issues},
+            'Telegram line failed with invalid data',
           );
         }
       }

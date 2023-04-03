@@ -1,5 +1,4 @@
 import {type WriteApi, Point} from '@influxdata/influxdb-client';
-import {Duration} from 'luxon';
 import type P1Meter from '../p1-meter/api.js';
 import Exporter from './exporter.js';
 
@@ -13,7 +12,7 @@ export default class Measurement extends Exporter {
   private readonly _writeApi: WriteApi;
 
   constructor(p1Meter: P1Meter, writeApi: WriteApi) {
-    super('measurement', Duration.fromObject({seconds: 1}));
+    super('measurement', {seconds: 1});
     this._p1Meter = p1Meter;
     this._writeApi = writeApi;
   }
