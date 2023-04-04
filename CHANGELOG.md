@@ -1,3 +1,17 @@
+## [2.0.0-beta.2](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2023-04-04)
+
+### Features
+
+- report errors using Rollbar ([68f38b4](https://github.com/vidavidorra/p1-meter-exporter/commit/68f38b4360d3991cb57e00a630ec9e6443fbaa92))
+
+### Code Refactoring
+
+- **config:** use logger `levels` from dependency @vidavidorra/bunyan-pretty-stream ([569fa2c](https://github.com/vidavidorra/p1-meter-exporter/commit/569fa2cb910afcf81c3e004bc3a044eb5f66e69a))
+
+### Documentation
+
+- add usage to readme ([e004571](https://github.com/vidavidorra/p1-meter-exporter/commit/e004571670f53daf967d5b0c82b3b2306b4b2812))
+
 ## [2.0.0-beta.1](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.2...v2.0.0-beta.1) (2023-03-24)
 
 ### ⚠ BREAKING CHANGES
