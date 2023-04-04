@@ -1,15 +1,39 @@
 # P1 Meter exporter
 
-🚧 [HomeWizard P1 Meter](https://www.homewizard.com/p1-meter/) exporter (work in progress).s
+[HomeWizard P1 Meter](https://www.homewizard.com/p1-meter/) exporter.
 
-## Inputs
+## Usage
 
-- `P1E_METER_API_URL`
-- `P1E_INFLUXDB_URL`
-- `P1E_INFLUXDB_TOKEN`
-- `P1E_INFLUXDB_ORGANISATION`
-- `P1E_INFLUXDB_BUCKET`
-- `P1E_LOG_LEVEL`
+### docker-compose
+
+```yml
+version: '3.0'
+services:
+  p1-meter-exporter:
+    image: ghcr.io/vidavidorra/p1-meter-exporter:latest
+    container_name: p1-meter-exporter
+    environment:
+      - METER_API_URL=http://192.168.1.10/api
+      - INFLUXDB_URL=http://192.168.1.2:8086
+      - 'INFLUXDB_TOKEN=RUHDbp7UGt7I6Q+abdG7QVtrcdOPtHJlGDugMNxFUSY='
+      - INFLUXDB_ORGANISATION=my-org
+      - INFLUXDB_BUCKET=p1-meter
+      - LOG_LEVEL=trace # optional
+    restart: unless-stopped
+```
+
+### Parameters
+
+The Docker container image is configured using environment envirables passed at runtime.
+
+| parameter               | description                                                                                    |
+| ----------------------- | ---------------------------------------------------------------------------------------------- |
+| `METER_API_URL`         | URL to the HomeWizard P1 meter API                                                             |
+| `INFLUXDB_URL`          | URL to Influx DB                                                                               |
+| `INFLUXDB_TOKEN`        | Influx DB token with write permissions to the bucket                                           |
+| `INFLUXDB_ORGANISATION` | Influx DB organisation name or ID                                                              |
+| `INFLUXDB_BUCKET`       | name or ID of the Influx DB bucket to write the data to                                        |
+| `LOG_LEVEL`             | _optional_ specify log level, can be one of `trace`, `debug`, `info`, `warn`, `error`, `fatal` |
 
 ## Security policy
 
