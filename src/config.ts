@@ -2,6 +2,7 @@ import {env} from 'node:process';
 import {Buffer} from 'node:buffer';
 import {z} from 'zod';
 import dotenv from 'dotenv';
+import {levels} from '@vidavidorra/bunyan-pretty-stream';
 
 const schema = z.object({
   meterApiUrl: z.string().url(),
@@ -18,9 +19,7 @@ const schema = z.object({
         : arg,
     z.string().min(1),
   ),
-  logLevel: z
-    .enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal'])
-    .default('error'),
+  logLevel: z.enum(levels).default('error'),
 });
 
 type Config = z.infer<typeof schema>;

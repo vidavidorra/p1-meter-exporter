@@ -17,7 +17,7 @@ class Logger extends bunyan {
     prettyStream.pipe(stdout);
 
     super({
-      name: 'P1 exporter',
+      name: 'P1 meter exporter',
       src: true,
       serializers: bunyan.stdSerializers,
       streams: [
