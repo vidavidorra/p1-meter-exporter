@@ -23,7 +23,11 @@ for (const exporter of exporters) {
   exporter.start();
 }
 
-process.on('SIGINT', async () => {
-  await Promise.allSettled(exporters.map(async (exporter) => exporter.stop()));
-  await writeApi.close();
-});
+for (const signal of ['SIGINT', 'SIGTERM']) {
+  process.on(signal, async () => {
+    await Promise.allSettled(
+      exporters.map(async (exporter) => exporter.stop()),
+    );
+    await writeApi.close();
+  });
+}
