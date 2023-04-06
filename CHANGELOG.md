@@ -1,3 +1,15 @@
+## [2.0.0-beta.3](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2023-04-06)
+
+### Features
+
+- add environment `production` or `development` to Rollbar ([f1a92ef](https://github.com/vidavidorra/p1-meter-exporter/commit/f1a92ef32467e3300ea1cabfd7ec96d67287793e))
+- add package version to Rollbar errors ([21fc701](https://github.com/vidavidorra/p1-meter-exporter/commit/21fc7015b4f2fb95f2492a2ca3439db53cee36cf))
+
+### Bug Fixes
+
+- exit gracefully on both terminate and interrupt signals ([b449513](https://github.com/vidavidorra/p1-meter-exporter/commit/b449513d0ae84a26c539471c076eac399810bc4a))
+- **p1-meter:** add data to telegram parser errors ([b1ba15d](https://github.com/vidavidorra/p1-meter-exporter/commit/b1ba15d955832a366ec9f7d33930ceb15f6e3f8c))
+
 ## [2.0.0-beta.2](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.1...v2.0.0-beta.2) (2023-04-04)
 
 ### Features
