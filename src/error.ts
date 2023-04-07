@@ -1,11 +1,11 @@
-class P1MeterError extends Error {
-  readonly details?: Record<string, unknown>;
+class DetailedError extends Error {
+  readonly rollbarContext?: Record<string, unknown>;
 
   constructor(message: string, details?: Record<string, unknown>) {
     super(message);
-    this.name = 'P1MeterError';
-    this.details = details;
+    this.name = 'DetailedError';
+    this.rollbarContext = details;
   }
 }
 
-export default P1MeterError;
+export {DetailedError};

@@ -1,7 +1,7 @@
 import axios, {type AxiosInstance} from 'axios';
 import {type z} from 'zod';
 import {type Config} from '../config.js';
-import P1MeterError from '../error.js';
+import {DetailedError} from '../error.js';
 import * as models from './models/index.js';
 import {type Telegram} from './telegram/model.js';
 import parse from './telegram/parse.js';
@@ -35,7 +35,7 @@ class P1Meter {
 
     const result = schema.safeParse(data);
     if (!result.success) {
-      throw new P1MeterError(`Request "${path}" failed with invalid data`, {
+      throw new DetailedError(`Request "${path}" failed with invalid data`, {
         data,
         issues: result.error.issues,
       });

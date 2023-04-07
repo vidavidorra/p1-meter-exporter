@@ -3,7 +3,7 @@ import {z} from 'zod';
 import {DateTime} from 'luxon';
 import logger from '../../logger.js';
 import rollbar from '../../rollbar.js';
-import P1MeterError from '../../error.js';
+import {DetailedError} from '../../error.js';
 import {type Telegram, schema} from './model.js';
 
 function numberSchema(
@@ -208,8 +208,8 @@ function parse(value: string): Telegram {
 
   const result = schema.safeParse(telegram);
   if (!result.success) {
-    throw new P1MeterError('Telegram failed with invalid data', {
-      data: value,
+    throw new DetailedError('Telegram failed with invalid data', {
+      data: telegram,
       issues: result.error.issues,
     });
   }
