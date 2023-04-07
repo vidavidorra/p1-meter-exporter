@@ -1,8 +1,10 @@
 import process from 'node:process';
-import {InfluxDB} from '@influxdata/influxdb-client';
+import {InfluxDB, setLogger} from '@influxdata/influxdb-client';
 import {config} from './config.js';
 import P1Meter from './p1-meter/api.js';
 import {Measurement, Meter, PowerStatus, System} from './exporter/index.js';
+import rollbar from './rollbar.js';
+import logger from './logger.js';
 
 const p1Meter = new P1Meter(config.meterApiUrl);
 
@@ -15,6 +17,17 @@ const writeApi = influxDb.getWriteApi(
   config.influxDb.bucket,
   's',
 );
+
+setLogger({
+  error(message, error) {
+    rollbar.error(error, message);
+    logger.error({error: error as unknown}, message);
+  },
+  warn(message, error) {
+    rollbar.warn(error, message);
+    logger.warn({error: error as unknown}, message);
+  },
+});
 
 const exporters = [Measurement, Meter, PowerStatus, System].map(
   (Exporter) => new Exporter(p1Meter, writeApi),
