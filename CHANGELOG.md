@@ -1,3 +1,10 @@
+## [2.0.0-beta.4](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2023-04-07)
+
+### Bug Fixes
+
+- report InfluxDB errors to Rollbar ([8857f33](https://github.com/vidavidorra/p1-meter-exporter/commit/8857f335a17605413cc5b0df4a5bdc41e714b2ff))
+- **Rollbar:** add details to error context ([e10b350](https://github.com/vidavidorra/p1-meter-exporter/commit/e10b35073b88a96057b58ae31958fe89af40d692))
+
 ## [2.0.0-beta.3](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.2...v2.0.0-beta.3) (2023-04-06)
 
 ### Features
