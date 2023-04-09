@@ -4,13 +4,14 @@ import {DateTime} from 'luxon';
 import logger from '../../logger.js';
 import rollbar from '../../rollbar.js';
 import {DetailedError} from '../../error.js';
+import round from '../../round.js';
 import {type Telegram, schema} from './model.js';
 
 function numberSchema(
   digits: number,
   decimals: number,
   unit?: string,
-  multipler = 1,
+  multiplier = 1,
 ): z.ZodEffects<z.ZodString, number, string> {
   return z
     .string()
@@ -25,7 +26,8 @@ function numberSchema(
     )
     .transform((arg) => {
       const unitLength = unit === undefined ? undefined : -`*${unit}`.length;
-      return Number.parseFloat(arg.slice(0, unitLength)) * multipler;
+      const value = Number.parseFloat(arg.slice(0, unitLength)) * multiplier;
+      return round(value, decimals - Math.log10(multiplier));
     });
 }
 

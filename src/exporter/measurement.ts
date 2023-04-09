@@ -1,11 +1,7 @@
 import {type WriteApi, Point} from '@influxdata/influxdb-client';
 import type P1Meter from '../p1-meter/api.js';
+import round from '../round.js';
 import Exporter from './exporter.js';
-
-function round(value: number, decimalPlaces: number): number {
-  const factor = 10 ** Math.max(0, decimalPlaces);
-  return Math.round((value + Number.EPSILON) * factor) / factor;
-}
 
 export default class Measurement extends Exporter {
   private readonly _p1Meter: P1Meter;
