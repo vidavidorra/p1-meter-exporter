@@ -1,3 +1,9 @@
+## [2.0.0-beta.5](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-04-09)
+
+### Bug Fixes
+
+- round parsed telegram values ([9dbe0ab](https://github.com/vidavidorra/p1-meter-exporter/commit/9dbe0ab12cb1794a8151c0b8b5b51218410cd82a)), closes [#8](https://github.com/vidavidorra/p1-meter-exporter/issues/8) [#12](https://github.com/vidavidorra/p1-meter-exporter/issues/12)
+
 ## [2.0.0-beta.4](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.3...v2.0.0-beta.4) (2023-04-07)
 
 ### Bug Fixes
