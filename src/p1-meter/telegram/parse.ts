@@ -213,6 +213,7 @@ function parse(value: string): Telegram {
     throw new DetailedError('Telegram failed with invalid data', {
       data: telegram,
       issues: result.error.issues,
+      telegram: value,
     });
   }
 
