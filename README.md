@@ -2,6 +2,8 @@
 
 [HomeWizard P1 Meter](https://www.homewizard.com/p1-meter/) exporter.
 
+> **Note** When errors occur, the data that caused the error is submitted to [Rollbar](https://rollbar.com/) to reproduce and fix the error.
+
 ## Usage
 
 ### docker-compose
