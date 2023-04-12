@@ -1,3 +1,39 @@
+## [2.0.0](https://github.com/vidavidorra/p1-meter-exporter/compare/v1.1.2...v2.0.0) (2023-04-12)
+
+### ⚠ BREAKING CHANGES
+
+- use low/high for tariff related measurements instead of 1/2
+
+### Features
+
+- add environment `production` or `development` to Rollbar ([f1a92ef](https://github.com/vidavidorra/p1-meter-exporter/commit/f1a92ef32467e3300ea1cabfd7ec96d67287793e))
+- add package version to Rollbar errors ([21fc701](https://github.com/vidavidorra/p1-meter-exporter/commit/21fc7015b4f2fb95f2492a2ca3439db53cee36cf))
+- report errors using Rollbar ([68f38b4](https://github.com/vidavidorra/p1-meter-exporter/commit/68f38b4360d3991cb57e00a630ec9e6443fbaa92))
+- use low/high for tariff related measurements instead of 1/2 ([b8059d5](https://github.com/vidavidorra/p1-meter-exporter/commit/b8059d51089ac0c0d195110b3ee08d5f198b315c))
+
+### Bug Fixes
+
+- exit gracefully on both terminate and interrupt signals ([b449513](https://github.com/vidavidorra/p1-meter-exporter/commit/b449513d0ae84a26c539471c076eac399810bc4a))
+- **p1-meter:** add data to telegram parser errors ([b1ba15d](https://github.com/vidavidorra/p1-meter-exporter/commit/b1ba15d955832a366ec9f7d33930ceb15f6e3f8c))
+- report InfluxDB errors to Rollbar ([8857f33](https://github.com/vidavidorra/p1-meter-exporter/commit/8857f335a17605413cc5b0df4a5bdc41e714b2ff))
+- **Rollbar:** add details to error context ([e10b350](https://github.com/vidavidorra/p1-meter-exporter/commit/e10b35073b88a96057b58ae31958fe89af40d692))
+- **Rollbar:** add telegram to the telegram parsing failure error context ([724baae](https://github.com/vidavidorra/p1-meter-exporter/commit/724baae6c1e408ca981011d788b43fa667917ec1))
+- round parsed telegram values ([9dbe0ab](https://github.com/vidavidorra/p1-meter-exporter/commit/9dbe0ab12cb1794a8151c0b8b5b51218410cd82a)), closes [#8](https://github.com/vidavidorra/p1-meter-exporter/issues/8) [#12](https://github.com/vidavidorra/p1-meter-exporter/issues/12)
+
+### Continuous Integration
+
+- add prerelease Docker tags ([02eafd8](https://github.com/vidavidorra/p1-meter-exporter/commit/02eafd887a07beb273e911019691c62762f51e52))
+
+### Code Refactoring
+
+- **config:** use logger `levels` from dependency @vidavidorra/bunyan-pretty-stream ([569fa2c](https://github.com/vidavidorra/p1-meter-exporter/commit/569fa2cb910afcf81c3e004bc3a044eb5f66e69a))
+
+### Documentation
+
+- add note on sending data to Rollbar ([4b1f685](https://github.com/vidavidorra/p1-meter-exporter/commit/4b1f6853045da7189d9381b4a7e3723ded9632e4))
+- add usage for Unraid ([dcac3ef](https://github.com/vidavidorra/p1-meter-exporter/commit/dcac3efc1acfa61ae6de458e8cf13bd146853163))
+- add usage to readme ([e004571](https://github.com/vidavidorra/p1-meter-exporter/commit/e004571670f53daf967d5b0c82b3b2306b4b2812))
+
 ## [2.0.0-beta.6](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2023-04-12)
 
 ### Bug Fixes
