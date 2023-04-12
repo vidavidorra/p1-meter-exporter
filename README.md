@@ -35,6 +35,14 @@ The Docker container image is configured using environment envirables passed at 
 | `INFLUXDB_BUCKET`       | name or ID of the Influx DB bucket to write the data to                                        |
 | `LOG_LEVEL`             | _optional_ specify log level, can be one of `trace`, `debug`, `info`, `warn`, `error`, `fatal` |
 
+### Unraid
+
+On [Unraid](https://unraid.net/) the Docker container image can be used using the pre-defined template. Open a terminal or SSH to the server and execute the following command to download the template in the user template section. This template can then be used when adding a container.
+
+```shell
+curl https://raw.githubusercontent.com/vidavidorra/p1-meter-exporter/main/static/unraid.xml -o /boot/config/plugins/dockerMan/templates-user/p1-meter-exporter.xml
+```
+
 ## Security policy
 
 Please refer to the [Security Policy on GitHub](https://github.com/vidavidorra/p1-meter-exporter/security/) for the security policy.
