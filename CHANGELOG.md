@@ -1,3 +1,14 @@
+## [2.0.0-beta.6](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.5...v2.0.0-beta.6) (2023-04-12)
+
+### Bug Fixes
+
+- **Rollbar:** add telegram to the telegram parsing failure error context ([724baae](https://github.com/vidavidorra/p1-meter-exporter/commit/724baae6c1e408ca981011d788b43fa667917ec1))
+
+### Documentation
+
+- add note on sending data to Rollbar ([4b1f685](https://github.com/vidavidorra/p1-meter-exporter/commit/4b1f6853045da7189d9381b4a7e3723ded9632e4))
+- add usage for Unraid ([dcac3ef](https://github.com/vidavidorra/p1-meter-exporter/commit/dcac3efc1acfa61ae6de458e8cf13bd146853163))
+
 ## [2.0.0-beta.5](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.0-beta.4...v2.0.0-beta.5) (2023-04-09)
 
 ### Bug Fixes
