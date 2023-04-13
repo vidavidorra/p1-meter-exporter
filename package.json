@@ -59,7 +59,7 @@
     "@types/bunyan": "1.8.8",
     "@types/luxon": "3.2.0",
     "@types/node": "18.14.1",
-    "@vidavidorra/commitlint-config": "4.0.12",
+    "@vidavidorra/commitlint-config": "4.0.14",
     "husky": "8.0.3",
     "lint-staged": "13.1.2",
     "npm-run-all": "4.1.5",
