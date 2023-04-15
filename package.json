@@ -48,7 +48,7 @@
     "luxon": "3.3.0",
     "read-pkg": "7.1.0",
     "rollbar": "2.26.1",
-    "zod": "3.20.6"
+    "zod": "3.21.4"
   },
   "devDependencies": {
     "@codedependant/semantic-release-docker": "4.3.0",
