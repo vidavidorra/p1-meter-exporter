@@ -45,7 +45,7 @@
     "bunyan": "1.8.15",
     "camelcase-keys": "8.0.2",
     "dotenv": "16.0.3",
-    "luxon": "3.2.1",
+    "luxon": "3.3.0",
     "read-pkg": "7.1.0",
     "rollbar": "2.26.1",
     "zod": "3.20.6"
@@ -57,7 +57,7 @@
     "@semantic-release/exec": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@types/bunyan": "1.8.8",
-    "@types/luxon": "3.2.0",
+    "@types/luxon": "3.3.0",
     "@types/node": "18.15.11",
     "@vidavidorra/commitlint-config": "4.0.14",
     "husky": "8.0.3",
