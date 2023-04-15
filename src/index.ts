@@ -20,11 +20,17 @@ const writeApi = influxDb.getWriteApi(
 
 setLogger({
   error(message, error) {
-    rollbar.error(error, message);
+    if (error instanceof Error) {
+      rollbar.error(error, message);
+    }
+
     logger.error({error: error as unknown}, message);
   },
   warn(message, error) {
-    rollbar.warn(error, message);
+    if (error instanceof Error) {
+      rollbar.warn(error, message);
+    }
+
     logger.warn({error: error as unknown}, message);
   },
 });
