@@ -70,7 +70,10 @@ export default abstract class Exporter {
     this._timeout = setTimeout(() => {
       this._promise = this.export(nextExport.toJSDate())
         .catch((error) => {
-          rollbar.error(error);
+          if (error instanceof Error) {
+            rollbar.error(error);
+          }
+
           logger.error(
             error,
             error instanceof Error ? error.message : undefined,
