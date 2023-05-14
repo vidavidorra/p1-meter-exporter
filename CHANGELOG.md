@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.4...v2.0.5) (2023-05-14)
+
+### Bug Fixes
+
+- log full Influx DB error messages ([1121466](https://github.com/vidavidorra/p1-meter-exporter/commit/1121466acd0ec580ca0cd53f987f614db4e6d04b))
+- **Rollbar:** don't report Influx DB `unprocessable entity` errors ([3f709bd](https://github.com/vidavidorra/p1-meter-exporter/commit/3f709bd0d315f5c656bc1ed310e17699ae72a206)), closes [#23](https://github.com/vidavidorra/p1-meter-exporter/issues/23) [#24](https://github.com/vidavidorra/p1-meter-exporter/issues/24) [#25](https://github.com/vidavidorra/p1-meter-exporter/issues/25) [#26](https://github.com/vidavidorra/p1-meter-exporter/issues/26) [#29](https://github.com/vidavidorra/p1-meter-exporter/issues/29) [#30](https://github.com/vidavidorra/p1-meter-exporter/issues/30)
+
 ## [2.0.4](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.3...v2.0.4) (2023-05-01)
 
 ### Bug Fixes
