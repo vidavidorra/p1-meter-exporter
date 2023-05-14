@@ -1,5 +1,5 @@
 import process from 'node:process';
-import {InfluxDB, setLogger} from '@influxdata/influxdb-client';
+import {HttpError, InfluxDB, setLogger} from '@influxdata/influxdb-client';
 import {config} from './config.js';
 import P1Meter from './p1-meter/api.js';
 import {Measurement, Meter, PowerStatus, System} from './exporter/index.js';
@@ -20,7 +20,10 @@ const writeApi = influxDb.getWriteApi(
 
 setLogger({
   error(message, error) {
-    if (error instanceof Error) {
+    if (
+      error instanceof Error &&
+      (!(error instanceof HttpError) || error.code !== 'unprocessable entity')
+    ) {
       rollbar.error(error, message);
     }
 
