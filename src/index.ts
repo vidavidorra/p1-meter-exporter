@@ -24,14 +24,14 @@ setLogger({
       rollbar.error(error, message);
     }
 
-    logger.error({error: error as unknown}, message);
+    logger.error(error, message);
   },
   warn(message, error) {
     if (error instanceof Error) {
       rollbar.warn(error, message);
     }
 
-    logger.warn({error: error as unknown}, message);
+    logger.warn(error, message);
   },
 });
 
