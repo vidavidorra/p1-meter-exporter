@@ -22,7 +22,10 @@ setLogger({
   error(message, error) {
     if (
       error instanceof Error &&
-      (!(error instanceof HttpError) || error.code !== 'unprocessable entity')
+      (!(error instanceof HttpError) ||
+        ['unprocessable entity', 'unauthorized'].every(
+          (code) => error.code !== code,
+        ))
     ) {
       rollbar.error(error, message);
     }
