@@ -1,3 +1,9 @@
+## [2.0.6](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.5...v2.0.6) (2023-05-21)
+
+### Bug Fixes
+
+- **Rollbar:** don't report Influx DB `unauthorized` errors ([b2954bf](https://github.com/vidavidorra/p1-meter-exporter/commit/b2954bfc2b4a2094b13c8f5497220708b9c73c53)), closes [#4](https://github.com/vidavidorra/p1-meter-exporter/issues/4)
+
 ## [2.0.5](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.4...v2.0.5) (2023-05-14)
 
 ### Bug Fixes
