@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@influxdata/influxdb-client": "1.33.2",
-    "@vidavidorra/bunyan-pretty-stream": "5.0.0",
+    "@vidavidorra/bunyan-pretty-stream": "6.0.0",
     "axios": "1.4.0",
     "bunyan": "1.8.15",
     "camelcase-keys": "8.0.2",
