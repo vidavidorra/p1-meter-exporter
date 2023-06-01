@@ -1,3 +1,9 @@
+## [2.0.7](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.6...v2.0.7) (2023-06-01)
+
+### Bug Fixes
+
+- **deps:** update dependency @vidavidorra/bunyan-pretty-stream to v6.0.0 ([851a59d](https://github.com/vidavidorra/p1-meter-exporter/commit/851a59d69bfc35104e8d0beb2351bb32a7fd1be2)), closes [#31](https://github.com/vidavidorra/p1-meter-exporter/issues/31) [#32](https://github.com/vidavidorra/p1-meter-exporter/issues/32) [#34](https://github.com/vidavidorra/p1-meter-exporter/issues/34) [#35](https://github.com/vidavidorra/p1-meter-exporter/issues/35) [#36](https://github.com/vidavidorra/p1-meter-exporter/issues/36) [#37](https://github.com/vidavidorra/p1-meter-exporter/issues/37) [#38](https://github.com/vidavidorra/p1-meter-exporter/issues/38)
+
 ## [2.0.6](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.5...v2.0.6) (2023-05-21)
 
 ### Bug Fixes
