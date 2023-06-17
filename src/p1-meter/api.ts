@@ -1,7 +1,9 @@
-import axios, {type AxiosInstance} from 'axios';
+import axios, {AxiosError, type AxiosInstance} from 'axios';
 import {type z} from 'zod';
 import {type Config} from '../config.js';
 import {DetailedError} from '../error.js';
+import logger from '../logger.js';
+import rollbar from '../rollbar.js';
 import * as models from './models/index.js';
 import {type Telegram} from './telegram/model.js';
 import parse from './telegram/parse.js';
@@ -12,6 +14,19 @@ class P1Meter {
   constructor(url: Config['meterApiUrl']) {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     this._axios = axios.create({baseURL: url});
+    this._axios.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        logger.error(error, error instanceof Error ? error.message : undefined);
+        if (
+          error instanceof Error &&
+          (!(error instanceof AxiosError) ||
+            ['EHOSTUNREACH', 'ECONNRESET'].every((code) => error.code !== code))
+        ) {
+          rollbar.error(error, error.message);
+        }
+      },
+    );
   }
 
   async basicInformation(): Promise<models.BasicInformation> {
