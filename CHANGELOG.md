@@ -1,3 +1,9 @@
+## [2.0.13](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.12...v2.0.13) (2023-06-17)
+
+### Bug Fixes
+
+- **Rollbar:** ignore P1-meter `EHOSTUNREACH` and `ECONNRESET` errors ([41c7d9a](https://github.com/vidavidorra/p1-meter-exporter/commit/41c7d9af9a2efb5c993c6b5580b8f15878b129cc)), closes [#9](https://github.com/vidavidorra/p1-meter-exporter/issues/9) [#33](https://github.com/vidavidorra/p1-meter-exporter/issues/33) [#39](https://github.com/vidavidorra/p1-meter-exporter/issues/39) [#40](https://github.com/vidavidorra/p1-meter-exporter/issues/40) [#41](https://github.com/vidavidorra/p1-meter-exporter/issues/41) [#42](https://github.com/vidavidorra/p1-meter-exporter/issues/42)
+
 ## [2.0.12](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.11...v2.0.12) (2023-06-07)
 
 ### Bug Fixes
