@@ -41,18 +41,22 @@ setLogger({
   },
 });
 
-const exporters = [Measurement, Meter, PowerStatus, System].map(
-  (Exporter) => new Exporter(p1Meter, writeApi),
-);
-for (const exporter of exporters) {
-  exporter.start();
-}
+try {
+  const exporters = [Measurement, Meter, PowerStatus, System].map(
+    (Exporter) => new Exporter(p1Meter, writeApi),
+  );
+  for (const exporter of exporters) {
+    exporter.start();
+  }
 
-for (const signal of ['SIGINT', 'SIGTERM']) {
-  process.on(signal, async () => {
-    await Promise.allSettled(
-      exporters.map(async (exporter) => exporter.stop()),
-    );
-    await writeApi.close();
-  });
+  for (const signal of ['SIGINT', 'SIGTERM']) {
+    process.on(signal, async () => {
+      await Promise.allSettled(
+        exporters.map(async (exporter) => exporter.stop()),
+      );
+      await writeApi.close();
+    });
+  }
+} catch (error) {
+  console.error(error);
 }
