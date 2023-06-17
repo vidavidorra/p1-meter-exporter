@@ -19,7 +19,13 @@ class P1Meter {
           if (
             error instanceof AxiosError &&
             error.code !== undefined &&
-            ['EHOSTUNREACH', 'ECONNRESET'].includes(error.code)
+            [
+              'EHOSTUNREACH',
+              'ECONNRESET',
+              'ETIMEDOUT',
+              'EHOSTDOWN',
+              'ECONNABORTED',
+            ].includes(error.code)
           ) {
             throw new DetailedError(error.message, {}, false, error);
           }
