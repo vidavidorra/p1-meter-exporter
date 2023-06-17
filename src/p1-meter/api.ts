@@ -13,7 +13,7 @@ class P1Meter {
 
   constructor(url: Config['meterApiUrl']) {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    this._axios = axios.create({baseURL: url});
+    this._axios = axios.create({baseURL: url, timeout: 10_000});
     this._axios.interceptors.response.use(
       (response) => response,
       (error) => {
