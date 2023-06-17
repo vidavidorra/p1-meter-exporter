@@ -1,3 +1,12 @@
+## [2.0.14](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.13...v2.0.14) (2023-06-17)
+
+### Bug Fixes
+
+- catch startup error and log it to `console.error` ([7ce5da5](https://github.com/vidavidorra/p1-meter-exporter/commit/7ce5da566518705e8ea55782a582e785001b411d))
+- **p1-meter:** propagate Axios error to the exporter ([7d69948](https://github.com/vidavidorra/p1-meter-exporter/commit/7d699488b586f9583476691c876bceea4c8b44cf)), closes [#43](https://github.com/vidavidorra/p1-meter-exporter/issues/43) [#44](https://github.com/vidavidorra/p1-meter-exporter/issues/44) [#45](https://github.com/vidavidorra/p1-meter-exporter/issues/45) [#46](https://github.com/vidavidorra/p1-meter-exporter/issues/46) [#47](https://github.com/vidavidorra/p1-meter-exporter/issues/47)
+- **p1-meter:** set Axios timeout to 10 seconds ([4be4d90](https://github.com/vidavidorra/p1-meter-exporter/commit/4be4d904f71133e7c9caf69c2e34083413b1ea43))
+- **Rollbar:** ignore P1-meter `ETIMEDOUT`, `EHOSTDOWN` and `ECONNABORTED` errors ([c95a688](https://github.com/vidavidorra/p1-meter-exporter/commit/c95a688c4d98f6cc88d542e9414646dae62049aa))
+
 ## [2.0.13](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.12...v2.0.13) (2023-06-17)
 
 ### Bug Fixes
