@@ -2,8 +2,6 @@ import axios, {AxiosError, type AxiosInstance} from 'axios';
 import {type z} from 'zod';
 import {type Config} from '../config.js';
 import {DetailedError} from '../error.js';
-import logger from '../logger.js';
-import rollbar from '../rollbar.js';
 import * as models from './models/index.js';
 import {type Telegram} from './telegram/model.js';
 import parse from './telegram/parse.js';
@@ -17,13 +15,16 @@ class P1Meter {
     this._axios.interceptors.response.use(
       (response) => response,
       (error) => {
-        logger.error(error, error instanceof Error ? error.message : undefined);
-        if (
-          error instanceof Error &&
-          (!(error instanceof AxiosError) ||
-            ['EHOSTUNREACH', 'ECONNRESET'].every((code) => error.code !== code))
-        ) {
-          rollbar.error(error, error.message);
+        if (error instanceof Error) {
+          if (
+            error instanceof AxiosError &&
+            error.code !== undefined &&
+            ['EHOSTUNREACH', 'ECONNRESET'].includes(error.code)
+          ) {
+            throw new DetailedError(error.message, {}, false, error);
+          }
+
+          throw error;
         }
       },
     );

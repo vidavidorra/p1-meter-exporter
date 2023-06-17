@@ -1,6 +1,7 @@
 import {DateTime, Duration, type DurationLikeObject} from 'luxon';
 import rollbar from '../rollbar.js';
 import logger from '../logger.js';
+import {DetailedError} from '../error.js';
 
 export default abstract class Exporter {
   protected readonly _logDetails: Record<string, unknown>;
@@ -70,7 +71,10 @@ export default abstract class Exporter {
     this._timeout = setTimeout(() => {
       this._promise = this.export(nextExport.toJSDate())
         .catch((error) => {
-          if (error instanceof Error) {
+          if (
+            (error instanceof DetailedError && error.reportToRollbar) ||
+            (!(error instanceof DetailedError) && error instanceof Error)
+          ) {
             rollbar.error(error);
           }
 
