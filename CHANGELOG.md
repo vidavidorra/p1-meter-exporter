@@ -1,3 +1,9 @@
+## [2.0.18](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.17...v2.0.18) (2023-07-03)
+
+### Bug Fixes
+
+- **deps:** update dependency rollbar to v2.26.2 ([716d33b](https://github.com/vidavidorra/p1-meter-exporter/commit/716d33b6234c4b113df944165c4cd28b75fcfe2c))
+
 ## [2.0.17](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.16...v2.0.17) (2023-06-20)
 
 ### Bug Fixes
