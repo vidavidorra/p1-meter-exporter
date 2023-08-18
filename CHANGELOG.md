@@ -1,3 +1,9 @@
+## [2.0.20](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.19...v2.0.20) (2023-08-18)
+
+### Bug Fixes
+
+- **deps:** update dependency zod to v3.22.0 ([03227a3](https://github.com/vidavidorra/p1-meter-exporter/commit/03227a3e19d31bab6184dd6843841faddb71dc37))
+
 ## [2.0.19](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.18...v2.0.19) (2023-08-12)
 
 ### Bug Fixes
