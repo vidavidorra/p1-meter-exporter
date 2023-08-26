@@ -46,7 +46,7 @@
     "camelcase-keys": "8.0.2",
     "dotenv": "16.3.1",
     "luxon": "3.4.1",
-    "read-pkg": "8.0.0",
+    "read-pkg": "8.1.0",
     "rollbar": "2.26.2",
     "zod": "3.22.2"
   },
