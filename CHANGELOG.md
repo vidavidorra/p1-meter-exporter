@@ -1,3 +1,9 @@
+## [2.0.24](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.23...v2.0.24) (2023-08-26)
+
+### Bug Fixes
+
+- **deps:** update dependency read-pkg to v8.1.0 ([02d3c2e](https://github.com/vidavidorra/p1-meter-exporter/commit/02d3c2e061f302e48781716ac143e69bfd332211))
+
 ## [2.0.23](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.22...v2.0.23) (2023-08-26)
 
 ### Bug Fixes
