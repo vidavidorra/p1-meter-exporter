@@ -1,3 +1,9 @@
+## [2.0.23](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.22...v2.0.23) (2023-08-26)
+
+### Bug Fixes
+
+- **deps:** update dependency luxon to v3.4.1 ([dbd84c7](https://github.com/vidavidorra/p1-meter-exporter/commit/dbd84c76a97fd92459ddffa6b220fdaf1fb35565))
+
 ## [2.0.22](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.21...v2.0.22) (2023-08-22)
 
 ### Bug Fixes
