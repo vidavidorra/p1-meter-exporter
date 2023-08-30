@@ -1,3 +1,10 @@
+## [2.0.25](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.24...v2.0.25) (2023-08-30)
+
+### Bug Fixes
+
+- **deps:** update dependency axios to v1.5.0 ([d74e370](https://github.com/vidavidorra/p1-meter-exporter/commit/d74e370d1a0ce6b5df4aba565365289e552cb9cc))
+- **deps:** update dependency luxon to v3.4.2 ([4aa38fa](https://github.com/vidavidorra/p1-meter-exporter/commit/4aa38faf64f2f71347068e047f9ef78f13b4406d))
+
 ## [2.0.25](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.24...v2.0.25) (2023-08-29)
 
 ### Bug Fixes
