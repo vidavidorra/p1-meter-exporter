@@ -41,7 +41,7 @@
   "dependencies": {
     "@influxdata/influxdb-client": "1.33.2",
     "@vidavidorra/bunyan-pretty-stream": "6.0.1",
-    "axios": "1.5.1",
+    "axios": "1.6.0",
     "bunyan": "1.8.15",
     "camelcase-keys": "8.0.2",
     "dotenv": "16.3.1",
