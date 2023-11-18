@@ -1,3 +1,9 @@
+## [2.0.34](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.33...v2.0.34) (2023-11-18)
+
+### Bug Fixes
+
+- **deps:** update dependency axios to v1.6.2 ([e713179](https://github.com/vidavidorra/p1-meter-exporter/commit/e713179b73542ae5458a512263baabb110bd2d08))
+
 ## [2.0.33](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.32...v2.0.33) (2023-11-16)
 
 ### Bug Fixes
