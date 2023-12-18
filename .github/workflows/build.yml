@@ -9,14 +9,14 @@ on:
   pull_request:
 jobs:
   lint:
-    uses: vidavidorra/.github/.github/workflows/node-lint.yml@430b5f02ffe77661ce0fe69608df20e1eb478c95 # v4.1.1
+    uses: vidavidorra/.github/.github/workflows/node-lint.yml@253ae1c7da064c079b5ab8f002983ebdea49ea89 # v4.1.2
   build:
     name: Build (Node.js ${{ matrix.nodeVersion }})
     strategy:
       fail-fast: false
       matrix:
         nodeVersion: [18, 19]
-    uses: vidavidorra/.github/.github/workflows/node-build.yml@430b5f02ffe77661ce0fe69608df20e1eb478c95 # v4.1.1
+    uses: vidavidorra/.github/.github/workflows/node-build.yml@253ae1c7da064c079b5ab8f002983ebdea49ea89 # v4.1.2
     with:
       nodeVersion: ${{ matrix.nodeVersion }}
   release:
