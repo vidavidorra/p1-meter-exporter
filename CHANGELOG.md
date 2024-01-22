@@ -1,3 +1,9 @@
+## [2.0.39](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.38...v2.0.39) (2024-01-22)
+
+### Bug Fixes
+
+- **deps:** update dependency dotenv to v16.3.2 ([4d0bd27](https://github.com/vidavidorra/p1-meter-exporter/commit/4d0bd271e0a2afada32ee2684d40d747c36fd6a3))
+
 ## [2.0.38](https://github.com/vidavidorra/p1-meter-exporter/compare/v2.0.37...v2.0.38) (2024-01-09)
 
 ### Bug Fixes
