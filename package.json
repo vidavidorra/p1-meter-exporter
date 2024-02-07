@@ -51,7 +51,7 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@codedependant/semantic-release-docker": "4.5.0",
+    "@codedependant/semantic-release-docker": "4.5.1",
     "@commitlint/cli": "18.6.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/exec": "6.0.3",
