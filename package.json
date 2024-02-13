@@ -44,7 +44,7 @@
     "axios": "1.6.7",
     "bunyan": "1.8.15",
     "camelcase-keys": "8.0.2",
-    "dotenv": "16.4.1",
+    "dotenv": "16.4.2",
     "luxon": "3.4.4",
     "read-pkg": "9.0.1",
     "rollbar": "2.26.2",
