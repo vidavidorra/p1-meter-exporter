@@ -47,7 +47,7 @@
     "dotenv": "16.4.4",
     "luxon": "3.4.4",
     "read-pkg": "9.0.1",
-    "rollbar": "2.26.2",
+    "rollbar": "2.26.3",
     "zod": "3.22.4"
   },
   "devDependencies": {
