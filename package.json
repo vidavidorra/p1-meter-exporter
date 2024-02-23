@@ -1,6 +1,6 @@
 {
   "name": "@vidavidorra/p1-meter-exporter",
-  "version": "2.0.47",
+  "version": "2.0.48",
   "description": "HomeWizard P1 Meter exporter",
   "type": "module",
   "exports": "./dist/index.js",
