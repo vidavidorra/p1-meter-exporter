@@ -9,6 +9,6 @@ on:
   pull_request:
 jobs:
   lint-commit-messages:
-    uses: vidavidorra/.github/.github/workflows/lint-commit-messages.yml@9dde233ec4ff195ad50eebd5bd7ea80deed9cf35 # v4.1.9
+    uses: vidavidorra/.github/.github/workflows/lint-commit-messages.yml@7cf5201e53e0e2c4daf7298cf97e5dab5d631c23 # v4.1.10
     with:
       configFile: package.json
