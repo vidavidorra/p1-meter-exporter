@@ -1,4 +1,4 @@
-FROM node:alpine@sha256:d3271e4bd89eec4d97087060fd4db0c238d9d22fcfad090a73fa9b5128699888 as build
+FROM node:alpine@sha256:7bfef1d72befbb72b0894a3e4503edbdc0441058b4d091325143338cbf54cff8 as build
 
 WORKDIR /app
 COPY package*.json tsconfig.json ./
@@ -6,7 +6,7 @@ COPY src ./src
 RUN npm ci --ignore-scripts
 RUN npm run build
 
-FROM node:alpine@sha256:d3271e4bd89eec4d97087060fd4db0c238d9d22fcfad090a73fa9b5128699888
+FROM node:alpine@sha256:7bfef1d72befbb72b0894a3e4503edbdc0441058b4d091325143338cbf54cff8
 
 WORKDIR /app
 COPY --from=build /app/dist ./dist/
